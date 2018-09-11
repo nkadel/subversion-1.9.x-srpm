@@ -92,20 +92,25 @@ Patch11: subversion-1.8.11-ruby22-fixes.rb
 Patch100: subversion-1.9.X-CVE-2017-9800.patch
 Patch101: subversion-1.9.3-httpd.patch
 
-BuildRequires: autoconf, libtool, texinfo, which
+BuildRequires: autoconf
+BuildRequires: libtool
+BuildRequires: texinfo
+BuildRequires: which
 BuildRequires: perl
 BuildRequires: gcc-c++
 %if 0%{?rhel} >= 7 || 0%{?fedora} >= 19
 BuildRequires: libdb-devel >= 4.1.25
+BuildRequires: python
 BuildRequires: python-devel
-BuildRequires:  python, python-devel
 %else
 BuildRequires: db4-devel >= 4.1.25
 BuildRequires: python27-python-devel
 BuildRequires: python27-build
 %endif
-BuildRequires: swig >= 1.3.24, gettext
-BuildRequires: apr-devel >= 1.3.0, apr-util-devel >= 1.3.0
+BuildRequires: swig >= 1.3.24
+BuildRequires: gettext
+BuildRequires: apr-devel >= 1.3.0
+BuildRequires: apr-util-devel >= 1.3.0
 # libserf comes from EPEL, not avail. in CBS... so provide our own.
 %if %{!?scl:1}0
 %if 0%{?rhel} >= 7 || 0%{?fedora} >= 19
@@ -125,6 +130,9 @@ BuildRequires: systemd-units
 %if 0%{?rhel} >= 7 || 0%{?fedora} >= 19
 # Any apr-util crypto backend needed
 BuildRequires: apr-util-openssl
+%endif
+%if %{with_kwallet}
+BuildRequires: kwallet
 %endif
 
 %if %{use_systemd}
@@ -727,6 +735,11 @@ fi
 %endif
 
 %changelog
+* Mon Sep 10 2018 Nico Kadel-Garcia <nkadel@gmail.com> - 1.9.3-0
+- Add BuildRequires kwallet
+- Roll back release number to 1.9.3-0
+- ADD bubersion-1.9.3-httpd.patch to ignore (patched) httpd versi9ns
+
 * Fri Aug 11 2017 Jaroslaw Polok <jaroslaw.polok@cern.ch> - 1.9.3-1.10
 - CVE-2017-9800 security fix.
 
