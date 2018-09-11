@@ -35,14 +35,14 @@ progname="`basename $0`"
 
 # Base URL for packages, update as needed
 APACHE_MIRROR=http://archive.apache.org/dist
-GMOCK_MIRROR=https://googlemock.googlecode.com/files/
+GOOGLETEST_MIRROR=https://github.com/google/googletest/archive
 SERF_MIRROR=https://www.apache.org/dist/serf
 SQLITE_MIRROR=https://sqlite.org/2018
 ZLIB_MIRROR=http://www.zlib.net
 
 APR_VERSION=${APR_VERSION:-"1.4.6"}
 APU_VERSION=${APU_VERSION:-"1.5.1"}
-GMOCK_VERSION=${GMOCK_VERSION:-"1.6.0"}
+GOOGLETEST_VERSION=${GOOGLETEST_VERSION:-"1.8.1"}
 HTTPD_VERSION=${HTTPD_VERSION:-"2.4.10"}
 SERF_VERSION=${SERF_VERSION:-"1.3.8"}
 SQLITE_VERSION=${SQLITE_VERSION:-"3.24.0"}
@@ -53,7 +53,7 @@ ZLIB_VERSION=${ZLIB_VERSION:-"1.2.8"}
 
 APR=apr-${APR_VERSION}
 APR_UTIL=apr-util-${APU_VERSION}
-GMOCK=gmock-${GMOCK_VERSION}
+GOOGLETEST=release-${GOOGLETEST_VERSION}
 SERF=serf-${SERF_VERSION}
 SQLITE=sqlite-autoconf-${SQLITE_AUTOCONF_VERSION}
 ZLIB=zlib-${ZLIB_VERSION}
@@ -110,20 +110,22 @@ get_apr_util() {
 	mv $APR_UTIL apr-util || return 1
 }
 
-get_gmock() {
-    echo Skipping: gmock has been absorbed into googletest
-    return 0
-
-    test -d $BASEDIR/gmock-fused && return
+get_googletest() {
+    test -d $BASEDIR/googletest && return
 
     cd $TEMPDIR || return 1
-    $HTTP_FETCH ${GMOCK_MIRROR}/${GMOCK}.zip
+    $HTTP_FETCH ${GOOGLETEST_MIRROR}/${GOOGLETEST}.tar.gz
     cd $BASEDIR || return 1
 
-    unzip -q $TEMPDIR/$GMOCK.zip
+    rm -rf googletest && \
+	zcat -dc $TEMPDIR/$GOOGLETEST.tar.gz | tar -xf - && \
+	mv googletest-$GOOGLETEST googletest || return 1
+}
 
-    mv $GMOCK/fused-src gmock-fused
-    rm -fr $GMOCK
+# gmock got moved to googletest
+get_gmock() {
+    get_googletest
+    ln -sf googletest/googlemock gmock-fused
 }
 
 get_serf() {

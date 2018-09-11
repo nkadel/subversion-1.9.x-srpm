@@ -1,5 +1,7 @@
-*~
-*\#*
+*.out
 *.rpm
 *.tar.*
 */
+*\#*
+*~
+gmock-fused
