@@ -35,45 +35,44 @@ progname="`basename $0`"
 
 # Base URL for packages, update as needed
 APACHE_MIRROR=http://archive.apache.org/dist
-GTEST_MIRROR=http://googletest.googlecode.com/files
+GMOCK_MIRROR=https://googlemock.googlecode.com/files/
 SERF_MIRROR=https://www.apache.org/dist/serf
 SQLITE_MIRROR=https://sqlite.org/2018
 ZLIB_MIRROR=http://www.zlib.net
 
-APR_ICONV_VERSION=${APR_ICONV_VERSION:-"1.2.1"}
 APR_VERSION=${APR_VERSION:-"1.4.6"}
 APU_VERSION=${APU_VERSION:-"1.5.1"}
-GTEST_VERSION=${GTEST_VERSION:-"1.6.0"}
+GMOCK_VERSION=${GMOCK_VERSION:-"1.6.0"}
 HTTPD_VERSION=${HTTPD_VERSION:-"2.4.10"}
-SERF_VERSION=${SERF_VERSION:-"1.3.9"}
+SERF_VERSION=${SERF_VERSION:-"1.3.8"}
 SQLITE_VERSION=${SQLITE_VERSION:-"3.24.0"}
 # Use multiple processing steps to make printf work, without "$()" syntzx
 SQLITE_VERSION_LIST=`echo $SQLITE_VERSION | sed -e 's/\./ /g'`
 SQLITE_AUTOCONF_VERSION="`printf %u%02u%02u%02u $SQLITE_VERSION_LIST`"
-ZLIB_VERSION=${ZLIB_VERSION:-"1.2.11"}
+ZLIB_VERSION=${ZLIB_VERSION:-"1.2.8"}
 
 APR=apr-${APR_VERSION}
 APR_UTIL=apr-util-${APU_VERSION}
-GTEST=gtest-${GTEST_VERSION}
+GMOCK=gmock-${GMOCK_VERSION}
 SERF=serf-${SERF_VERSION}
 SQLITE=sqlite-autoconf-${SQLITE_AUTOCONF_VERSION}
 ZLIB=zlib-${ZLIB_VERSION}
 
 # Not normally downloaded
 HTTPD=httpd-${HTTPD_VERSION}
-APR_ICONV=apr-iconv-${APR_ICONV_VERSION}
 
 BASEDIR=`pwd`
 TEMPDIR=$BASEDIR/temp
 
 HTTP_FETCH=
 [ -z "$HTTP_FETCH" ] && type wget  >/dev/null 2>&1 && HTTP_FETCH="wget -q -nc"
-[ -z "$HTTP_FETCH" ] && type curl  >/dev/null 2>&1 && HTTP_FETCH="curl -sO"
+[ -z "$HTTP_FETCH" ] && type curl  >/dev/null 2>&1 && HTTP_FETCH="curl -sOL"
 [ -z "$HTTP_FETCH" ] && type fetch >/dev/null 2>&1 && HTTP_FETCH="fetch -q"
 
 # helpers
 usage() {
-    echo "Usage: $progname [ apr | gtest | serf | sqlite | zlib ] ..."
+    echo "Usage: $progname"
+    echo "Usage: $progname [ apr | gmock | serf | sqlite | zlib ] ..."
     exit $1
 }
 
@@ -85,7 +84,6 @@ get_apr() {
     test -d $BASEDIR/apr && \
 	echo "Local directory 'apr' exists; downloaded copy will not be used" >&2 && \
 	return
-
     cd $TEMPDIR || return 1
     $HTTP_FETCH $APACHE_MIRROR/apr/$APR.tar.bz2
     cd $BASEDIR || return 1
@@ -96,12 +94,6 @@ get_apr() {
 
     # Include this in get_apr, makes it easier to match components
     get_apr_util
-}
-
-get_apr_iconv() {
-    echo
-    echo "If you require apr-iconv, its recommended version is:"
-    echo "   $APACHE_MIRROR/apr/$APR_ICONV.tar.bz2"
 }
 
 get_apr_util() {
@@ -118,25 +110,20 @@ get_apr_util() {
 	mv $APR_UTIL apr-util || return 1
 }
 
-get_gtest() {
-    test -d $BASEDIR/gtest && \
-	echo "Local directory 'gtest' exists; downloaded copy will not be used" >&2 && \
-	return
+get_gmock() {
+    echo Skipping: gmock has been absorbed into googletest
+    return 0
+
+    test -d $BASEDIR/gmock-fused && return
 
     cd $TEMPDIR || return 1
-    $HTTP_FETCH ${GTEST_MIRROR}/${GTEST}.zip
+    $HTTP_FETCH ${GMOCK_MIRROR}/${GMOCK}.zip
     cd $BASEDIR || return 1
 
-    rm -rf gtest && \
-        unzip -q $TEMPDIR/$GTEST.zip
-	mv $GTEST gtest || return 1
-}
+    unzip -q $TEMPDIR/$GMOCK.zip
 
-get_httpd() {
-    # Not yet in use
-    echo	
-    echo "If you require mod_dav_svn, the recommended version of httpd is:"
-    echo "   $APACHE_MIRROR/httpd/$HTTPD.tar.bz2"
+    mv $GMOCK/fused-src gmock-fused
+    rm -fr $GMOCK
 }
 
 get_serf() {
@@ -177,7 +164,7 @@ get_zlib() {
     cd $BASEDIR || return 1
 
     rm -rf zlib && \
-	gzip -dc  $TEMPDIR/$ZLIB.tar.gz | tar -xf - && \
+	gzip -dc $TEMPDIR/$ZLIB.tar.gz | tar -xf - && \
 	mv $ZLIB zlib || return 1
 }
 
@@ -200,17 +187,10 @@ if [ $# -gt 0 ]; then
 else
     get_apr
     #get_apr_util # run by get_apr
-    #get_gtest
+    get_gmock
     get_serf
     get_sqlite
     get_zlib
-
-    # Comments on packages to install manually
-    echo
-    echo "gtest is not yet used. To download anyway, use:"
-    echo "    $0 gtest"
-    get_apr_iconv
-    get_httpd
 fi
 
 rm -rf $TEMPDIR
