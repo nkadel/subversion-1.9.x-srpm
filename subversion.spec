@@ -64,7 +64,8 @@
 Summary: A Modern Concurrent Version Control System
 Name: %{?scl_prefix}subversion
 Version: 1.9.3
-Release: 1.10%{?dist}
+#Release: 1.10%{?dist}
+Release: 0%{?dist}
 License: ASL 2.0
 Group: Development/Tools
 URL: http://subversion.apache.org/
@@ -738,7 +739,7 @@ fi
 * Mon Sep 10 2018 Nico Kadel-Garcia <nkadel@gmail.com> - 1.9.3-0
 - Add BuildRequires kwallet
 - Roll back release number to 1.9.3-0
-- ADD bubersion-1.9.3-httpd.patch to ignore (patched) httpd versi9ns
+- Add bubersion-1.9.3-httpd.patch to ignore (patched) httpd versions
 
 * Fri Aug 11 2017 Jaroslaw Polok <jaroslaw.polok@cern.ch> - 1.9.3-1.10
 - CVE-2017-9800 security fix.
