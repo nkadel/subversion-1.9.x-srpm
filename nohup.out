@@ -1,0 +1,1374 @@
+Building SRPM with subversion.spec
+rm -rf rpmbuild
+rpmbuild --define '_topdir /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild' \
+	 --define '_sourcedir /home/nkadel/git/subversion-1.9.x-srpm' \
+	 -bs `ls *.spec | head -1` --nodeps
+Wrote: /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SRPMS/subversion-1.9.3-1.10.el7.src.rpm
+rpmbuild --define '_topdir /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild' \
+	 --rebuild /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SRPMS/*.src.rpm
+Installing /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SRPMS/subversion-1.9.3-1.10.el7.src.rpm
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.YsWTr5
++ umask 022
++ cd /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD
++ cd /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD
++ rm -rf subversion-1.9.3
++ /usr/bin/bzip2 -dc /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.9.3.tar.bz2
++ /usr/bin/tar -xf -
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd subversion-1.9.3
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ echo 'Patch #1 (subversion-1.9.0-rpath.patch):'
+Patch #1 (subversion-1.9.0-rpath.patch):
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.9.0-rpath.patch
++ /usr/bin/patch -p1 -b --suffix .rpath --fuzz=0
+patching file build.conf
+patching file Makefile.in
++ echo 'Patch #2 (subversion-1.9.0-pie.patch):'
+Patch #2 (subversion-1.9.0-pie.patch):
++ /usr/bin/patch -p1 -b --suffix .pie --fuzz=0
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.9.0-pie.patch
+patching file build.conf
+patching file build/generator/gen_base.py
+patching file Makefile.in
+Hunk #2 succeeded at 757 (offset -1 lines).
++ echo 'Patch #3 (subversion-1.9.0-kwallet.patch):'
+Patch #3 (subversion-1.9.0-kwallet.patch):
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.9.0-kwallet.patch
++ /usr/bin/patch -p1 -b --suffix .kwallet --fuzz=0
+patching file build/ac-macros/kwallet.m4
++ echo 'Patch #4 (subversion-1.8.0-rubybind.patch):'
+Patch #4 (subversion-1.8.0-rubybind.patch):
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.8.0-rubybind.patch
++ /usr/bin/patch -p1 -b --suffix .rubybind --fuzz=0
+patching file subversion/bindings/swig/ruby/test/util.rb
+Hunk #1 succeeded at 73 (offset 34 lines).
+Hunk #2 succeeded at 289 (offset 36 lines).
++ echo 'Patch #8 (subversion-1.8.5-swigplWall.patch):'
+Patch #8 (subversion-1.8.5-swigplWall.patch):
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.8.5-swigplWall.patch
++ /usr/bin/patch -p1 -b --suffix .swigplWall --fuzz=0
+patching file subversion/bindings/swig/perl/native/Makefile.PL.in
+Hunk #1 succeeded at 61 (offset 7 lines).
++ echo 'Patch #10 (subversion-1.8.13-swigpython.patch):'
+Patch #10 (subversion-1.8.13-swigpython.patch):
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.8.13-swigpython.patch
++ /usr/bin/patch -p1 -b --suffix .swigpython --fuzz=0
+patching file subversion/bindings/swig/include/proxy.swg
++ echo 'Patch #11 (subversion-1.8.11-ruby22-fixes.rb):'
+Patch #11 (subversion-1.8.11-ruby22-fixes.rb):
++ /usr/bin/patch -p0 -b --suffix .ruby22-fixes --fuzz=0
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.8.11-ruby22-fixes.rb
+patching file subversion/bindings/swig/ruby/test/my-assertions.rb
+patching file subversion/bindings/swig/ruby/test/test-unit-ext.rb
+patching file subversion/bindings/swig/ruby/test/test_repos.rb
+patching file subversion/bindings/swig/ruby/test/test_wc.rb
++ echo 'Patch #100 (subversion-1.9.X-CVE-2017-9800.patch):'
+Patch #100 (subversion-1.9.X-CVE-2017-9800.patch):
++ /usr/bin/patch -p0 -b --suffix .cve-2017-9800 --fuzz=0
++ /usr/bin/cat /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/SOURCES/subversion-1.9.X-CVE-2017-9800.patch
+patching file subversion/libsvn_ra_svn/client.c
+patching file subversion/libsvn_subr/config_file.c
+Hunk #1 succeeded at 1238 (offset -10 lines).
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.0BMYor
++ umask 022
++ cd /home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD
++ cd subversion-1.9.3
++ mv build-outputs.mk build-outputs.mk.old
++ PATH=/usr/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/nkadel/.local/bin:/home/nkadel/bin
++ ./autogen.sh --release
+buildcheck: checking installation for a source release...
+buildcheck: autoconf version 2.69 (ok)
+buildcheck: autoheader version 2.69 (ok)
+buildcheck: libtool version 2.4.2 (ok)
+Copying libtool helper:  /usr/share/aclocal/libtool.m4
+Copying libtool helper:  /usr/share/aclocal/ltoptions.m4
+Copying libtool helper:  /usr/share/aclocal/ltsugar.m4
+Copying libtool helper:  /usr/share/aclocal/ltversion.m4
+Copying libtool helper:  /usr/share/aclocal/lt~obsolete.m4
+Copying autoconf helper: /usr/share/libtool/config/config.guess
+Copying autoconf helper: /usr/share/libtool/config/config.sub
+Generating SWIG code...
+Wrote: subversion/libsvn_subr/config_keys.inc
+make[1]: Entering directory `/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3'
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/core.c ./subversion/bindings/swig/core.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:308: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:308: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:640: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1207: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1208: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1333: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1440: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1440: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1454: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1454: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1469: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1469: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1742: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1758: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1966: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1966: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_io_h.swg:85: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:166: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:181: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:193: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:240: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_client.c ./subversion/bindings/swig/svn_client.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_delta.c ./subversion/bindings/swig/svn_delta.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_delta.h:293: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_delta.h:1372: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_diff.c ./subversion/bindings/swig/svn_diff.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_fs.c ./subversion/bindings/swig/svn_fs.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2133: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2259: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2516: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2528: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:3191: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_ra.c ./subversion/bindings/swig/svn_ra.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_ra_h.swg:351: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_repos.c ./subversion/bindings/swig/svn_repos.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:570: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2735: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:3601: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:3622: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -python -classic -o subversion/bindings/swig/python/svn_wc.c ./subversion/bindings/swig/svn_wc.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_version.h:148: Warning 302: Identifier 'svn_version_t' redefined (ignored),
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_types_h.swg:47: Warning 302: previous definition of 'svn_version_t'.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:201: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:4062: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7486: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7486: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7506: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7506: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7521: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7521: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7535: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7535: Warning 314: 'from' is a python keyword, renaming to '_from'
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7865: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7866: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_wc_h.swg:290: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_wc_h.swg:295: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/core.c ./subversion/bindings/swig/core.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:664: Warning 454: Setting a pointer/reference variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:294: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:295: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:296: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:322: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_auth.h:192: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_auth.h:194: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_auth.h:216: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_auth.h:277: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:174: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:201: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:201: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:214: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:214: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:273: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:288: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:307: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:307: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:373: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:390: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:403: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:430: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:479: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:494: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:524: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_mergeinfo.h:540: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:640: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1207: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1208: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1333: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1742: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1758: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:2091: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_io_h.swg:85: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:166: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:181: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:193: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:240: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_client.c ./subversion/bindings/swig/svn_client.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/svn_wc.i:68: Warning 453: Can't apply (apr_array_header_t **OUTPUT_OF_PROP). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:487: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:558: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:591: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:3954: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:5213: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:6174: Warning 451: Setting a const char * variable may leak memory.
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_delta.c ./subversion/bindings/swig/svn_delta.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_delta.h:293: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_delta.h:1371: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_delta.h:1372: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_diff.c ./subversion/bindings/swig/svn_diff.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_fs.c ./subversion/bindings/swig/svn_fs.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/svn_fs.i:93: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:1513: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2029: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2046: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2133: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2259: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2516: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2528: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:3191: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_ra.c ./subversion/bindings/swig/svn_ra.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_ra.h:1162: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_ra.h:1732: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_ra.h:2076: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_ra_h.swg:266: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_ra_h.swg:351: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_ra_h.swg:351: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_repos.c ./subversion/bindings/swig/svn_repos.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/svn_fs.i:93: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:570: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:1813: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2041: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2596: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2670: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2735: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:3601: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:3622: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -perl -nopm -noproxy -o subversion/bindings/swig/perl/native/svn_wc.c ./subversion/bindings/swig/svn_wc.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include/svn_containers.swg:121: Warning 453: Can't apply (apr_hash_t **HASH_CSTRING). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:296: Warning 453: Can't apply (svn_rangelist_t *RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:307: Warning 453: Can't apply (svn_rangelist_t **RANGELIST). No typemaps are defined.
+./subversion/bindings/swig/core.i:314: Warning 453: Can't apply (svn_rangelist_t **RANGELIST_INOUT). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/core.i:329: Warning 453: Can't apply (apr_hash_t *MERGEINFO). No typemaps are defined.
+./subversion/bindings/swig/svn_wc.i:68: Warning 453: Can't apply (apr_array_header_t **OUTPUT_OF_PROP). No typemaps are defined.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:201: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:745: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:746: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:775: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:2884: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:2887: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:2923: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:2973: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:3215: Warning 451: Setting a const char * variable may leak memory.
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:4062: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:6830: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:6844: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7865: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7866: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_wc_h.swg:290: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_wc_h.swg:295: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/core.c ./subversion/bindings/swig/core.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:640: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1207: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1208: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1333: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1742: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_io.h:1758: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_io_h.swg:85: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:166: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:181: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:193: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_checksum.h:240: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_client.c ./subversion/bindings/swig/svn_client.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_client.h:5213: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_delta.c ./subversion/bindings/swig/svn_delta.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_delta.h:293: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_diff.c ./subversion/bindings/swig/svn_diff.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_fs.c ./subversion/bindings/swig/svn_fs.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2133: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2259: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2516: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:2528: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_fs.h:3191: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_ra.c ./subversion/bindings/swig/svn_ra.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_ra.h:2076: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_ra_h.swg:351: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_ra_h.swg:351: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_repos.c ./subversion/bindings/swig/svn_repos.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:570: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2596: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:2735: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:3601: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_repos.h:3622: Warning 900: FIXME: Missing argout typemap
+swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/include -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy -I/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy    -ruby -o subversion/bindings/swig/ruby/svn_wc.c ./subversion/bindings/swig/svn_wc.i
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:504: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_props.h:652: Warning 305: Bad constant value (ignored).
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:4062: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7865: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/include/svn_wc.h:7866: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_wc_h.swg:290: Warning 900: FIXME: Missing argout typemap
+/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3/subversion/bindings/swig/proxy/svn_wc_h.swg:295: Warning 900: FIXME: Missing argout typemap
+make[1]: Leaving directory `/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3'
+Creating build-outputs.mk...
+Wrote: subversion/libsvn_subr/config_keys.inc
+Creating svn_private_config.h.in...
+Creating configure...
+
+You can run ./configure now.
+
+Running autogen.sh implies you are a maintainer.  You may prefer
+to run configure in one of the following ways:
+
+./configure --enable-maintainer-mode
+./configure --disable-shared
+./configure --enable-maintainer-mode --disable-shared
+./configure --disable-optimize --enable-debug
+./configure CFLAGS='--flags-for-C' CXXFLAGS='--flags-for-C++'
+
+Note:  If you wish to run a Subversion HTTP server, you will need
+Apache 2.x.  See the INSTALL file for details.
+
++ perl -pi -e 's|/usr/bin/env perl -w|/usr/bin/perl -w|' tools/hook-scripts/commit-access-control.pl.in
++ export 'svn_cv_ruby_link=gcc -shared'
++ svn_cv_ruby_link='gcc -shared'
++ export svn_cv_ruby_sitedir_libsuffix=
++ svn_cv_ruby_sitedir_libsuffix=
++ export svn_cv_ruby_sitedir_archsuffix=
++ svn_cv_ruby_sitedir_archsuffix=
++ export 'EXTRA_CFLAGS=-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic -DSVN_SQLITE_MIN_VERSION_NUMBER=3007012        -DSVN_SQLITE_MIN_VERSION=\"3.7.12\"'
++ EXTRA_CFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic -DSVN_SQLITE_MIN_VERSION_NUMBER=3007012        -DSVN_SQLITE_MIN_VERSION=\"3.7.12\"'
++ export APACHE_LDFLAGS=-Wl,-z,relro,-z,now
++ APACHE_LDFLAGS=-Wl,-z,relro,-z,now
++ export CC=gcc CXX=g++ JAVA_HOME=/usr/lib/jvm/java
++ CC=gcc
++ CXX=g++
++ JAVA_HOME=/usr/lib/jvm/java
++ CFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
++ export CFLAGS
++ CXXFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
++ export CXXFLAGS
++ FFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic -I/usr/lib64/gfortran/modules'
++ export FFLAGS
++ FCFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic -I/usr/lib64/gfortran/modules'
++ export FCFLAGS
++ LDFLAGS='-Wl,-z,relro '
++ export LDFLAGS
++ '[' 1 == 1 ']'
++ '[' x86_64 == ppc64le ']'
+++ find . -name config.guess -o -name config.sub
++ for i in '$(find . -name config.guess -o -name config.sub)'
+++ basename ./build/config.guess
++ '[' -f /usr/lib/rpm/redhat/config.guess ']'
++ /usr/bin/rm -f ./build/config.guess
+++ basename ./build/config.guess
++ /usr/bin/cp -fv /usr/lib/rpm/redhat/config.guess ./build/config.guess
+'/usr/lib/rpm/redhat/config.guess' -> './build/config.guess'
++ for i in '$(find . -name config.guess -o -name config.sub)'
+++ basename ./build/config.sub
++ '[' -f /usr/lib/rpm/redhat/config.sub ']'
++ /usr/bin/rm -f ./build/config.sub
+++ basename ./build/config.sub
++ /usr/bin/cp -fv /usr/lib/rpm/redhat/config.sub ./build/config.sub
+'/usr/lib/rpm/redhat/config.sub' -> './build/config.sub'
++ ./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-apr=/usr --with-apr-util=/usr --disable-debug --with-swig --with-serf=/usr --with-ruby-sitedir=/usr/lib64/ruby/vendor_ruby --with-ruby-test-verbose=verbose --with-apxs=/usr/bin/apxs --disable-mod-activation --with-apache-libexecdir=/usr/lib64/httpd/modules --disable-static --with-sasl=/usr --with-libmagic=/usr --with-gnome-keyring --enable-javahl --with-junit=/usr/share/java/junit.jar --with-kwallet --with-berkeley-db
+configure: WARNING: unrecognized options: --disable-dependency-tracking
+configure: Configuring Subversion 1.9.3
+configure: creating config.nice
+checking for x86_64-redhat-linux-gnu-gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking if gcc accepts -std=c90... yes
+checking if gcc accepts -w... yes
+checking if gcc accepts -Werror=unknown-warning-option... no
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking if g++ accepts -std=c++98... yes
+checking if g++ accepts -w... yes
+checking if g++ accepts -Werror=unknown-warning-option... no
+checking how to run the C preprocessor... gcc -E
+checking for a sed that does not truncate output... /bin/sed
+checking build system type... x86_64-redhat-linux-gnu
+checking host system type... x86_64-redhat-linux-gnu
+checking target system type... x86_64-redhat-linux-gnu
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /bin/install -c
+configure: Apache Portable Runtime (APR) library configuration
+checking for APR... yes
+checking APR version... 1.4.8
+configure: Apache Portable Runtime Utility (APRUTIL) library configuration
+checking for APR-util... yes
+checking APRUTIL version... 1.5.2
+checking for pkg-config... /bin/pkg-config
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+configure: serf library configuration via pkg-config
+checking for serf-2 library... no
+checking for serf-1 library... no
+configure: serf library configuration via prefix
+checking serf.h usability... yes
+checking serf.h presence... yes
+checking for serf.h... yes
+checking for serf_context_create in -lserf-1... yes
+checking was serf enabled... yes
+configure: looking for apr_memcache as part of apr-util
+checking apr_memcache.h usability... yes
+checking apr_memcache.h presence... yes
+checking for apr_memcache.h... yes
+checking for apr_memcache_create in -laprutil-1... yes
+checking for Apache module support via DSO through APXS... found at /usr/bin/apxs
+checking httpd version... recent enough
+checking mod_dav version... broken
+configure: error: Apache httpd version 2.4.6 includes a broken mod_dav; use a newer version of httpd
++ cat config.log
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by subversion configure 1.9.3, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  $ ./configure --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-apr=/usr --with-apr-util=/usr --disable-debug --with-swig --with-serf=/usr --with-ruby-sitedir=/usr/lib64/ruby/vendor_ruby --with-ruby-test-verbose=verbose --with-apxs=/usr/bin/apxs --disable-mod-activation --with-apache-libexecdir=/usr/lib64/httpd/modules --disable-static --with-sasl=/usr --with-libmagic=/usr --with-gnome-keyring --enable-javahl --with-junit=/usr/share/java/junit.jar --with-kwallet --with-berkeley-db
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = nkadel-7.localdomain
+uname -m = x86_64
+uname -r = 3.10.0-862.9.1.el7.x86_64
+uname -s = Linux
+uname -v = #1 SMP Mon Jul 16 16:29:36 UTC 2018
+
+/usr/bin/uname -p = x86_64
+/bin/uname -X     = unknown
+
+/bin/arch              = x86_64
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/local/bin
+PATH: /bin
+PATH: /usr/bin
+PATH: /usr/local/sbin
+PATH: /usr/sbin
+PATH: /home/nkadel/.local/bin
+PATH: /home/nkadel/bin
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2670: Configuring Subversion 1.9.3
+configure:2689: creating config.nice
+configure:2720: checking for x86_64-redhat-linux-gnu-gcc
+configure:2747: result: gcc
+configure:3016: checking for C compiler version
+configure:3025: gcc --version >&5
+gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-28)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3036: $? = 0
+configure:3025: gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) 
+configure:3036: $? = 0
+configure:3025: gcc -V >&5
+gcc: error: unrecognized command line option '-V'
+gcc: fatal error: no input files
+compilation terminated.
+configure:3036: $? = 4
+configure:3025: gcc -qversion >&5
+gcc: error: unrecognized command line option '-qversion'
+gcc: fatal error: no input files
+compilation terminated.
+configure:3036: $? = 4
+configure:3056: checking whether the C compiler works
+configure:3078: gcc -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  -Wl,-z,relro  conftest.c  >&5
+configure:3082: $? = 0
+configure:3130: result: yes
+configure:3133: checking for C compiler default output file name
+configure:3135: result: a.out
+configure:3141: checking for suffix of executables
+configure:3148: gcc -o conftest -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  -Wl,-z,relro  conftest.c  >&5
+configure:3152: $? = 0
+configure:3174: result: 
+configure:3196: checking whether we are cross compiling
+configure:3204: gcc -o conftest -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  -Wl,-z,relro  conftest.c  >&5
+configure:3208: $? = 0
+configure:3215: ./conftest
+configure:3219: $? = 0
+configure:3234: result: no
+configure:3239: checking for suffix of object files
+configure:3261: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  conftest.c >&5
+configure:3265: $? = 0
+configure:3286: result: o
+configure:3290: checking whether we are using the GNU C compiler
+configure:3309: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  conftest.c >&5
+configure:3309: $? = 0
+configure:3318: result: yes
+configure:3327: checking whether gcc accepts -g
+configure:3347: gcc -c -g  conftest.c >&5
+configure:3347: $? = 0
+configure:3388: result: yes
+configure:3405: checking for gcc option to accept ISO C89
+configure:3468: gcc  -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  conftest.c >&5
+configure:3468: $? = 0
+configure:3481: result: none needed
+configure:3515: checking if gcc accepts -std=c90
+configure:3522: gcc -o conftest -std=c90   -Wl,-z,relro  conftest.c  >&5
+configure:3522: $? = 0
+configure:3524: result: yes
+configure:3637: checking if gcc accepts -w
+configure:3644: gcc -o conftest -w   -Wl,-z,relro  conftest.c  >&5
+configure:3644: $? = 0
+configure:3646: result: yes
+configure:3686: checking if gcc accepts -Werror=unknown-warning-option
+configure:3693: gcc -o conftest -Werror=unknown-warning-option -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  -Wl,-z,relro  conftest.c  >&5
+cc1: error: -Werror=unknown-warning-option: no option -Wunknown-warning-option
+configure:3693: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "subversion"
+| #define PACKAGE_TARNAME "subversion"
+| #define PACKAGE_VERSION "1.9.3"
+| #define PACKAGE_STRING "subversion 1.9.3"
+| #define PACKAGE_BUGREPORT "http://subversion.apache.org/"
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| int main(void){return 0;}
+configure:3701: result: no
+configure:3833: checking for C++ compiler version
+configure:3842: g++ --version >&5
+g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-28)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3853: $? = 0
+configure:3842: g++ -v >&5
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) 
+configure:3853: $? = 0
+configure:3842: g++ -V >&5
+g++: error: unrecognized command line option '-V'
+g++: fatal error: no input files
+compilation terminated.
+configure:3853: $? = 4
+configure:3842: g++ -qversion >&5
+g++: error: unrecognized command line option '-qversion'
+g++: fatal error: no input files
+compilation terminated.
+configure:3853: $? = 4
+configure:3857: checking whether we are using the GNU C++ compiler
+configure:3876: g++ -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  conftest.cpp >&5
+configure:3876: $? = 0
+configure:3885: result: yes
+configure:3894: checking whether g++ accepts -g
+configure:3914: g++ -c -g  conftest.cpp >&5
+configure:3914: $? = 0
+configure:3955: result: yes
+configure:3992: checking if g++ accepts -std=c++98
+configure:3999: g++ -o conftest -std=c++98   -Wl,-z,relro  conftest.cpp  >&5
+configure:3999: $? = 0
+configure:4001: result: yes
+configure:4036: checking if g++ accepts -w
+configure:4043: g++ -o conftest -w   -Wl,-z,relro  conftest.cpp  >&5
+configure:4043: $? = 0
+configure:4045: result: yes
+configure:4085: checking if g++ accepts -Werror=unknown-warning-option
+configure:4092: g++ -o conftest -Werror=unknown-warning-option -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic  -Wl,-z,relro  conftest.cpp  >&5
+cc1plus: error: -Werror=unknown-warning-option: no option -Wunknown-warning-option
+configure:4092: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "subversion"
+| #define PACKAGE_TARNAME "subversion"
+| #define PACKAGE_VERSION "1.9.3"
+| #define PACKAGE_STRING "subversion 1.9.3"
+| #define PACKAGE_BUGREPORT "http://subversion.apache.org/"
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| int main(){}
+configure:4100: result: no
+configure:4124: checking how to run the C preprocessor
+configure:4155: gcc -E  conftest.c
+configure:4155: $? = 0
+configure:4169: gcc -E  conftest.c
+conftest.c:9:28: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+                            ^
+compilation terminated.
+configure:4169: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "subversion"
+| #define PACKAGE_TARNAME "subversion"
+| #define PACKAGE_VERSION "1.9.3"
+| #define PACKAGE_STRING "subversion 1.9.3"
+| #define PACKAGE_BUGREPORT "http://subversion.apache.org/"
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4194: result: gcc -E
+configure:4214: gcc -E  conftest.c
+configure:4214: $? = 0
+configure:4228: gcc -E  conftest.c
+conftest.c:9:28: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+                            ^
+compilation terminated.
+configure:4228: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "subversion"
+| #define PACKAGE_TARNAME "subversion"
+| #define PACKAGE_VERSION "1.9.3"
+| #define PACKAGE_STRING "subversion 1.9.3"
+| #define PACKAGE_BUGREPORT "http://subversion.apache.org/"
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4259: checking for a sed that does not truncate output
+configure:4323: result: /bin/sed
+configure:4334: checking build system type
+configure:4348: result: x86_64-redhat-linux-gnu
+configure:4368: checking host system type
+configure:4381: result: x86_64-redhat-linux-gnu
+configure:4401: checking target system type
+configure:4414: result: x86_64-redhat-linux-gnu
+configure:4442: checking for grep that handles long lines and -e
+configure:4500: result: /bin/grep
+configure:4505: checking for egrep
+configure:4567: result: /bin/grep -E
+configure:4573: checking whether ln -s works
+configure:4577: result: yes
+configure:4599: checking for a BSD-compatible install
+configure:4667: result: /bin/install -c
+configure:4698: Apache Portable Runtime (APR) library configuration
+configure:4726: checking for APR
+configure:4802: result: yes
+configure:4827: checking APR version
+configure:4833: result: 1.4.8
+configure:4948: Apache Portable Runtime Utility (APRUTIL) library configuration
+configure:4976: checking for APR-util
+configure:5052: result: yes
+configure:5073: checking APRUTIL version
+configure:5087: result: 1.5.2
+configure:5191: checking for pkg-config
+configure:5209: found /bin/pkg-config
+configure:5221: result: /bin/pkg-config
+configure:5231: checking for ANSI C header files
+configure:5251: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5251: $? = 0
+configure:5324: gcc -o conftest -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE -Wl,-z,relro    conftest.c  >&5
+configure:5324: $? = 0
+configure:5324: ./conftest
+configure:5324: $? = 0
+configure:5335: result: yes
+configure:5348: checking for sys/types.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for sys/stat.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for stdlib.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for string.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for memory.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for strings.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for inttypes.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for stdint.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5348: checking for unistd.h
+configure:5348: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE conftest.c >&5
+configure:5348: $? = 0
+configure:5348: result: yes
+configure:5388: serf library configuration via pkg-config
+configure:5392: checking for serf-2 library
+configure:5400: result: no
+configure:5392: checking for serf-1 library
+configure:5400: result: no
+configure:5440: serf library configuration via prefix
+configure:5449: checking serf.h usability
+configure:5449: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  -I/usr/include/serf-1 conftest.c >&5
+configure:5449: $? = 0
+configure:5449: result: yes
+configure:5449: checking serf.h presence
+configure:5449: gcc -E   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  -I/usr/include/serf-1 conftest.c
+configure:5449: $? = 0
+configure:5449: result: yes
+configure:5449: checking for serf.h
+configure:5449: result: yes
+configure:5477: checking for serf_context_create in -lserf-1
+configure:5502: gcc -o conftest -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  -I/usr/include/serf-1 -Wl,-z,relro     conftest.c -lserf-1 -laprutil-1 -lapr-1 -lz  >&5
+configure:5502: $? = 0
+configure:5512: result: yes
+configure:5534: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  -I/usr/include/serf-1 conftest.c >&5
+configure:5534: $? = 0
+configure:5584: checking was serf enabled
+configure:5587: result: yes
+configure:5686: looking for apr_memcache as part of apr-util
+configure:5690: checking apr_memcache.h usability
+configure:5690: gcc -c -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  conftest.c >&5
+configure:5690: $? = 0
+configure:5690: result: yes
+configure:5690: checking apr_memcache.h presence
+configure:5690: gcc -E   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  conftest.c
+configure:5690: $? = 0
+configure:5690: result: yes
+configure:5690: checking for apr_memcache.h
+configure:5690: result: yes
+configure:5695: checking for apr_memcache_create in -laprutil-1
+configure:5720: gcc -o conftest -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread   -DLINUX -D_REENTRANT -D_GNU_SOURCE  -I/usr/include/apr-1   -I/usr/include/apr-1  -Wl,-z,relro     -laprutil-1 conftest.c -laprutil-1   >&5
+configure:5720: $? = 0
+configure:5729: result: yes
+configure:5775: checking for Apache module support via DSO through APXS
+configure:5807: result: found at /usr/bin/apxs
+configure:5810: checking httpd version
+configure:5822: result: recent enough
+configure:5856: checking mod_dav version
+configure:5864: result: broken
+configure:5866: error: Apache httpd version 2.4.6 includes a broken mod_dav; use a newer version of httpd
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-redhat-linux-gnu
+ac_cv_c_compiler_gnu=yes
+ac_cv_cxx_compiler_gnu=yes
+ac_cv_env_CCC_set=
+ac_cv_env_CCC_value=
+ac_cv_env_CC_set=set
+ac_cv_env_CC_value=gcc
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
+ac_cv_env_CPPFLAGS_set=
+ac_cv_env_CPPFLAGS_value=
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_CXXCPP_set=
+ac_cv_env_CXXCPP_value=
+ac_cv_env_CXXFLAGS_set=set
+ac_cv_env_CXXFLAGS_value='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
+ac_cv_env_CXX_set=set
+ac_cv_env_CXX_value=g++
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-Wl,-z,relro '
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-redhat-linux-gnu
+ac_cv_env_host_alias_set=set
+ac_cv_env_host_alias_value=x86_64-redhat-linux-gnu
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_header_apr_memcache_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_serf_h=yes
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_host=x86_64-redhat-linux-gnu
+ac_cv_lib_aprutil_1_apr_memcache_create=yes
+ac_cv_lib_serf_1___serf_context_create=yes
+ac_cv_objext=o
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_PKG_CONFIG=/bin/pkg-config
+ac_cv_path_SED=/bin/sed
+ac_cv_path_install='/bin/install -c'
+ac_cv_prog_CC=gcc
+ac_cv_prog_CPP='gcc -E'
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_cxx_g=yes
+ac_cv_target=x86_64-redhat-linux-gnu
+svn_cv_ruby_link='gcc -shared'
+svn_cv_ruby_sitedir_archsuffix=
+svn_cv_ruby_sitedir_libsuffix=
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+APACHE_INCLUDES=''
+APACHE_LDFLAGS='-Wl,-z,relro,-z,now'
+APACHE_LIBEXECDIR=''
+APXS='/usr/bin/apxs'
+AR=''
+AWK=''
+BDB_TEST_DEPS=''
+BDB_TEST_PROGRAMS=''
+BUILD_RULES=''
+CC='gcc'
+CFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic   -pthread'
+CMAINTAINERFLAGS=''
+CMODEFLAGS='-std=c90 '
+CNOWARNFLAGS='-w '
+CPP='gcc -E'
+CPPFLAGS='  -DLINUX -D_REENTRANT -D_GNU_SOURCE'
+CTYPESGEN=''
+CUSERFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
+CXX='g++'
+CXXCPP=''
+CXXFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
+CXXMAINTAINERFLAGS=''
+CXXMODEFLAGS='-std=c++98 '
+CXXNOWARNFLAGS='-w '
+CXXUSERFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches   -m64 -mtune=generic'
+DEFS=''
+DLLTOOL=''
+DOXYGEN=''
+DSYMUTIL=''
+DUMPBIN=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+EXEEXT=''
+FGREP=''
+FIX_JAVAHL_LIB=''
+GETTEXT_CODESET=''
+GMOCK_SRCDIR=''
+GREP='/bin/grep'
+HTTPD_VERSION='2.4.6'
+INCLUDE_OUTPUTS=''
+INSTALL_APACHE_MODS=''
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_EXTRA_JAVAHL_LIB=''
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_RULES=''
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STATIC_RULES=''
+JAR=''
+JAVA=''
+JAVAC=''
+JAVAC_COMPAT_FLAGS=''
+JAVAC_FLAGS=''
+JAVADOC=''
+JAVAH=''
+JAVAHL_COMPAT_TESTS_TARGET=''
+JAVAHL_OBJDIR=''
+JAVAHL_TESTS_TARGET=''
+JAVA_CLASSPATH=''
+JDK=''
+JNI_INCLUDES=''
+KDE4_CONFIG=''
+LD=''
+LDFLAGS='-Wl,-z,relro    '
+LIBOBJS=''
+LIBS=''
+LIBTOOL=''
+LIPO=''
+LN_S='ln -s'
+LTLIBOBJS=''
+LT_CFLAGS=''
+LT_CXX_LIBADD=''
+LT_LDFLAGS=''
+LT_NO_UNDEFINED=''
+MANIFEST_TOOL=''
+MKDIR='/bin/install -c -d'
+MOD_ACTIVATION=''
+MSGFMT=''
+MSGFMTFLAGS=''
+MSGMERGE=''
+NM=''
+NMEDIT=''
+NO_GETTEXT_CODESET=''
+OBJDUMP=''
+OBJEXT='o'
+OTOOL64=''
+OTOOL=''
+PACKAGE_BUGREPORT='http://subversion.apache.org/'
+PACKAGE_NAME='subversion'
+PACKAGE_STRING='subversion 1.9.3'
+PACKAGE_TARNAME='subversion'
+PACKAGE_URL=''
+PACKAGE_VERSION='1.9.3'
+PATH_SEPARATOR=':'
+PERL=''
+PKG_CONFIG='/bin/pkg-config'
+PYTHON=''
+RANLIB=''
+RDOC=''
+RUBY=''
+RUBY_MAJOR=''
+RUBY_MINOR=''
+RUBY_TEENY=''
+SED='/bin/sed'
+SHELL='/bin/sh'
+STRIP=''
+SVN_APRUTIL_CONFIG='/usr/bin/apu-1-config'
+SVN_APRUTIL_INCLUDES=' -I/usr/include/apr-1 '
+SVN_APRUTIL_LIBS='-laprutil-1'
+SVN_APR_CONFIG='/usr/bin/apr-1-config'
+SVN_APR_INCLUDES=' -I/usr/include/apr-1 '
+SVN_APR_LIBS='-lapr-1'
+SVN_APR_MAJOR_VERSION='1'
+SVN_APR_MEMCACHE_INCLUDES=''
+SVN_APR_MEMCACHE_LIBS=''
+SVN_APR_SHLIB_PATH_VAR='LD_LIBRARY_PATH'
+SVN_BINDIR=''
+SVN_CONFIG_SCRIPT_FILES=''
+SVN_DB_INCLUDES=''
+SVN_DB_LIBS=''
+SVN_FS_LIB_DEPS=''
+SVN_FS_LIB_INSTALL_DEPS=''
+SVN_FS_LIB_LINK=''
+SVN_GNOME_KEYRING_INCLUDES=''
+SVN_GNOME_KEYRING_LIBS=''
+SVN_HAVE_GPG_AGENT=''
+SVN_INTL_LIBS=''
+SVN_KWALLET_INCLUDES=''
+SVN_KWALLET_LIBS=''
+SVN_LIBTOOL=''
+SVN_LT_SOVERSION='-version-info 0'
+SVN_MAGIC_INCLUDES=''
+SVN_MAGIC_LIBS=''
+SVN_RA_LIB_DEPS=''
+SVN_RA_LIB_INSTALL_DEPS=''
+SVN_RA_LIB_LINK=''
+SVN_SASL_INCLUDES=''
+SVN_SASL_LIBS=''
+SVN_SERF_INCLUDES='-I/usr/include/serf-1'
+SVN_SERF_LIBS='-lserf-1'
+SVN_SQLITE_INCLUDES=''
+SVN_SQLITE_LIBS=''
+SVN_USE_GMOCK=''
+SVN_XML_INCLUDES=''
+SVN_XML_LIBS=''
+SVN_ZLIB_INCLUDES=''
+SVN_ZLIB_LIBS=''
+SWIG=''
+SWIG_CPPFLAGS=''
+SWIG_LDFLAGS='-Wl,-z,relro '
+SWIG_PL_INCLUDES=''
+SWIG_PY_COMPILE=''
+SWIG_PY_INCLUDES=''
+SWIG_PY_LIBS=''
+SWIG_PY_LINK=''
+SWIG_RB_COMPILE=''
+SWIG_RB_INCLUDES=''
+SWIG_RB_LIBS=''
+SWIG_RB_LINK=''
+SWIG_RB_SITE_ARCH_DIR=''
+SWIG_RB_SITE_LIB_DIR=''
+SWIG_RB_TEST_VERBOSE=''
+TRANG=''
+TRANSFORM_LIBTOOL_SCRIPTS=''
+XGETTEXT=''
+abs_builddir='/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3'
+abs_srcdir='/home/nkadel/git/subversion-1.9.x-srpm/rpmbuild/BUILD/subversion-1.9.3'
+ac_ct_AR=''
+ac_ct_CC=''
+ac_ct_CXX=''
+ac_ct_DUMPBIN=''
+bindir='/usr/bin'
+build='x86_64-redhat-linux-gnu'
+build_alias='x86_64-redhat-linux-gnu'
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='redhat'
+canonicalized_srcdir=''
+datadir='/usr/share'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix='/usr'
+host='x86_64-redhat-linux-gnu'
+host_alias='x86_64-redhat-linux-gnu'
+host_cpu='x86_64'
+host_os='linux-gnu'
+host_vendor='redhat'
+htmldir='${docdir}'
+includedir='/usr/include'
+infodir='/usr/share/info'
+libdir='/usr/lib64'
+libexecdir='/usr/libexec'
+libsvn_auth_gnome_keyring_LDFLAGS=''
+libsvn_auth_kwallet_LDFLAGS=''
+libsvn_client_LDFLAGS=''
+libsvn_delta_LDFLAGS=''
+libsvn_diff_LDFLAGS=''
+libsvn_fs_LDFLAGS=''
+libsvn_fs_base_LDFLAGS=''
+libsvn_fs_fs_LDFLAGS=''
+libsvn_fs_util_LDFLAGS=''
+libsvn_ra_LDFLAGS=''
+libsvn_ra_local_LDFLAGS=''
+libsvn_ra_serf_LDFLAGS=''
+libsvn_ra_svn_LDFLAGS=''
+libsvn_repos_LDFLAGS=''
+libsvn_subr_LDFLAGS=''
+libsvn_wc_LDFLAGS=''
+localedir='${datarootdir}/locale'
+localstatedir='/var'
+mandir='/usr/share/man'
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+sbindir='/usr/sbin'
+sharedstatedir='/var/lib'
+sysconfdir='/etc'
+target='x86_64-redhat-linux-gnu'
+target_alias=''
+target_cpu='x86_64'
+target_os='linux-gnu'
+target_vendor='redhat'
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME "subversion"
+#define PACKAGE_TARNAME "subversion"
+#define PACKAGE_VERSION "1.9.3"
+#define PACKAGE_STRING "subversion 1.9.3"
+#define PACKAGE_BUGREPORT "http://subversion.apache.org/"
+#define PACKAGE_URL ""
+#define SVN_SOVERSION 0
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_SERF_H 1
+#define SVN_HAVE_SERF 1
+#define SVN_HAVE_MEMCACHE 1
+
+configure: exit 1
++ exit 1
+error: Bad exit status from /var/tmp/rpm-tmp.0BMYor (%build)
+
+
+RPM build errors:
+    Bad exit status from /var/tmp/rpm-tmp.0BMYor (%build)
+make: *** [build] Error 1
